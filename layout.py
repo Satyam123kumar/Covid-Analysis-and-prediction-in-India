@@ -21,13 +21,20 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.linear_model import LinearRegression
 
 
-
 window=tk.Tk()
 window.title("MATHS PROJECT")
-window.geometry('1280x720')
+window.geometry('1360x768')
 window.configure(background='cyan')
+# img = PhotoImage(file="c.jpg")
 window.grid_rowconfigure(0,weight=1)
 window.grid_columnconfigure(0,weight=1)
+# image2 =Image.open('img.png')
+# image1 = ImageTk.PhotoImage(image2)
+# w = image1.width()
+# h = image1.height()
+# window.geometry('%dx%d+0+0' % (w,h))
+# label = tk.Label(window,image=image1)
+# label.place(x=0, y=0)
 lb1=tk.Label(window,text="Central Tendency and Dispersion",width=25,height=2,bg='white',fg='black' ,font=('times',15,' bold'))
 lb1.place(x=10,y=380)
 message2=tk.Label(window,padx=0.5,text='',bg='white',fg='red',width=80,height=2,font=('times',15,'bold '))
@@ -36,7 +43,6 @@ lb2=tk.Label(window,text="Prediction",width=25,height=2,bg='white',fg='black' ,f
 lb2.place(x=10,y=450)
 message3=tk.Label(window,padx=0.5,text='',bg='white',fg='red',width=80,height=2,font=('times',15,'bold '))
 message3.place(x=350,y=450)
-
 
 
 
@@ -72,7 +78,7 @@ def totalcases():
     med=india.Confirmed_Cases.median()
     mod=india.Confirmed_Cases.mode()
     dev=india.Confirmed_Cases.std()
-    mod=3*med-2*me
+    mod=(3*med-me)/2
     print(me,mod,med)
     me=str(me)
     me=me[0:10]
@@ -127,7 +133,7 @@ def totaldeath():
     med=india.Death_Rate.median()
     mod=india.Death_Rate.mode()
     dev=india.Death_Rate.std()
-    mod=3*med-2*me
+    mod=(3*med-me)/2
     me=str(me)
     me=me[0:10]
     med=str(med)
@@ -182,7 +188,7 @@ def growthrate():
     med=india.Growth_Rate.median()
     mod=india.Growth_Rate.mode()
     dev=india.Growth_Rate.std()
-    mod=3*med-2*me
+    mod=(3*med-me)/2
     me=str(me)
     me=me[0:10]
     med=str(med)
@@ -236,7 +242,7 @@ def Recoveries():
     med=india.Cured.median()
     mod=india.Cured.mode()
     dev=india.Cured.std()
-    mod=3*med-2*me
+    mod=(3*med-me)/2
     med=str(med)
     med=med[0:10]
     #mod=str(mod)
@@ -289,7 +295,7 @@ def change_dropdown(*args):
 
 tkvar.trace('w', change_dropdown)
 
-message=tk.Label(window,padx=0.5,text='DATA ANALYSIS OF COVID 19 INDIA',bg='cyan',fg='goldenrod4',width=50,height=4,font=('times',30,'bold '))
+message=tk.Label(window,padx=0.5,text='DATA ANALYSIS OF COVID 19 IN INDIA',bg='cyan',fg='goldenrod4',width=50,height=4,font=('times',30,'bold '))
 message.place(x=100,y=-40)
 
 clearButton=tk.Button(window,text='Total Cases', command=total_cases,bg='grey',fg='lightyellow',width=10,height=1, activebackground='red',font=('times',30,'bold'))
@@ -309,12 +315,6 @@ clearButton.place(x=550,y=250)
 
 quitwindow=tk.Button(window,text='Quit',command=window.destroy,bg='red3',fg='lightyellow',width=10,height=1, activebackground='white',font=('times',30,'bold'))
 quitwindow.place(x=1050,y=540)
-
-
-
-
-
-
 
 
 
